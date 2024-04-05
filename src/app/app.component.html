@@ -25,7 +25,6 @@
       name="filters"
       id="filters"
       [(ngModel)]="listFilter"
-      (ngModelChange)="filterChanged($event)"
     >
       <option value="0">All</option>
       <option value="1">Unfulfilled</option>
@@ -34,25 +33,6 @@
   </div>
 
   <div class="row mt-3">
-    <div *ngIf="visibleItems.length === 0; else showItems">No wish items.</div>
-    <ng-template #showItems>
-      <ul class="wish-list">
-        <li *ngFor="let item of visibleItems; index as ii">
-          <div class="form-check">
-            <label [for]="item.wishText" class="form-check-label">
-              <input
-                type="checkbox"
-                [id]="item.wishText"
-                class="checkbox"
-                [checked]="item.isComplete"
-                [attr.data-id]="ii"
-                (click)="toggleItem(item)"
-              />
-              {{ item.wishText }}
-            </label>
-          </div>
-        </li>
-      </ul>
-    </ng-template>
+    <wish-list [wishes]="visibleItems"></wish-list>
   </div>
 </div>
