@@ -19,10 +19,10 @@ import { WishFilterComponent } from './wish-filter/wish-filter.component';
 })
 export class AppComponent {
   items: WishItem[] = [
-    // new WishItem('Start development journey', true),
-    // new WishItem('Learn Frontend frameworks'),
-    // new WishItem('Get really good at programming'),
-    // new WishItem('Become an accomplished individual'),
+    new WishItem('Start development journey', true),
+    new WishItem('Learn Frontend frameworks'),
+    new WishItem('Get really good at programming'),
+    new WishItem('Become an accomplished individual'),
   ];
 
   listFilter: any = () => {};
