@@ -22,10 +22,11 @@ export class WishFilterComponent implements OnInit {
   @Output() filterChange = new EventEmitter<any>();
 
   ngOnInit(): void {
-    this.filterChange.emit(filters[0]);
+    this.updateFilter('0');
   }
 
   updateFilter(value: any) {
-    this.filterChange.emit(filters[value]);
+    this.filter = filters[value];
+    this.filterChange.emit(this.filter);
   }
 }
