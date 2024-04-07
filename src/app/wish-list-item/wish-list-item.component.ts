@@ -1,5 +1,7 @@
 import { NgClass } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import events from './../../shared/EventService';
+import { WishItem } from '../../shared/models/wishItem';
 
 @Component({
   selector: 'wish-list-item',
@@ -9,20 +11,20 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './wish-list-item.component.scss',
 })
 export class WishListItemComponent {
-  @Input() wishText!: any;
-
-  @Input() fulfilled!: any;
-  @Output() fulfilledChange = new EventEmitter<boolean>();
+  @Input() wish!: WishItem;
 
   get cssClasses() {
     // return this.fulfilled ? ['strikeout', 'text-muted'] : [];
     return {
-      'strikeout text-muted': this.fulfilled,
+      'strikeout text-muted': this.wish.isComplete,
     };
   }
 
+  removeWish() {
+    events.emit('removeWish', this.wish);
+  }
+
   toggleFulfilled() {
-    this.fulfilled = !this.fulfilled;
-    this.fulfilledChange.emit(this.fulfilled);
+    this.wish.isComplete = !this.wish.isComplete;
   }
 }
