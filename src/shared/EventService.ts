@@ -1,19 +1,21 @@
-import { Subject } from "rxjs";
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
-class EventService {
-    private subject = new Subject();
-    
-    emit(eventName: string, payload: any) {
-        this.subject.next({ eventName, payload });
-    }
+@Injectable({
+  providedIn: 'root',
+})
+export class EventService {
+  private subject = new Subject();
 
-    listen(eventName: string, callback: (event: any) => void) {
-        this.subject.asObservable().subscribe((nextObj: any) => {
-            if (eventName === nextObj.eventName) {
-                callback(nextObj.payload);
-            }
-        })
-    }
+  emit(eventName: string, payload: any) {
+    this.subject.next({ eventName, payload });
+  }
+
+  listen(eventName: string, callback: (event: any) => void) {
+    this.subject.asObservable().subscribe((nextObj: any) => {
+      if (eventName === nextObj.eventName) {
+        callback(nextObj.payload);
+      }
+    });
+  }
 }
-
-export default new EventService();
