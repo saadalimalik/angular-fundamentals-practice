@@ -13,5 +13,9 @@ export class ContactComponent {
         senderMessage: new FormControl(''),
     });
 
-    submitForm() {}
+    submitForm() {
+        if (this.contactForm.valid) {
+            console.log(this.contactForm.value);
+        }
+    }
 }

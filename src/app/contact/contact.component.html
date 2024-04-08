@@ -1,4 +1,4 @@
-<form class="container my-3">
+<form class="container my-3" [formGroup]="contactForm">
     <div class="form-group mb-3">
         <label for="senderName" class="form-label">Name</label>
         <input
@@ -10,14 +10,14 @@
         />
     </div>
     <div class="form-group mb-3">
-        <label
-            for="senderEmail"
-            class="form-label"
+        <label for="senderEmail" class="form-label">Email</label>
+        <input
+            type="email"
+            id="senderEmail"
+            class="form-control"
             name="senderEmail"
             formControlName="senderEmail"
-            >Email</label
-        >
-        <input type="text" id="senderEmail" class="form-control" />
+        />
     </div>
     <div class="form-group mb-3">
         <label for="senderMessage" class="form-label">Message</label>
