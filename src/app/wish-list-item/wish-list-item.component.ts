@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import {EventService} from './../../shared/EventService';
+import { EventService } from '../../shared/services/EventService';
 import { WishItem } from '../../shared/models/wishItem';
 
 @Component({
@@ -14,7 +14,7 @@ export class WishListItemComponent {
   @Input() wish!: WishItem;
 
   constructor(private events: EventService) {}
-  
+
   get cssClasses() {
     // return this.fulfilled ? ['strikeout', 'text-muted'] : [];
     return {

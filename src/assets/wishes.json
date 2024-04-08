@@ -1,0 +1,18 @@
+[
+    {
+        "wishText": "Start development journey",
+        "isComplete": true
+    },
+    {
+        "wishText": "Learn Frontend frameworks",
+        "isComplete": false
+    },
+    {
+        "wishText": "Get really good at programming",
+        "isComplete": false
+    },
+    {
+        "wishText": "Become an accomplished individual",
+        "isComplete": false
+    }
+]
